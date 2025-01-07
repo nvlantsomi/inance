@@ -26,6 +26,45 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <!-- Load Antsomi Webinbox Library -->
+<script src="https://st-platform.ants.tech/js/libs/app-inbox/app-inbox.min.js?v=1"></script>
+
+<!-- Antsomi Webinbox Component -->
+<antsomi-webinbox 
+    portalid="561236459" 
+    destinationid="8281353" 
+    lookupType="customer" 
+    lookupId="" 
+    selector="body">
+</antsomi-webinbox>
+
+<script>
+    // Function to get the value of a specific cookie
+    function getCookieValue(cookieName) {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith(cookieName + '=')) {
+                return cookie.substring(cookieName.length + 1);
+            }
+        }
+        return null;
+    }
+
+    // Get customer ID (_cdp_cusid) from cookies
+    const customerId = getCookieValue('_cdp_cusid');
+
+    // Select the Antsomi Webinbox component
+    const antsomiWebinbox = document.querySelector('antsomi-webinbox');
+
+    // Update lookupId if customerId exists
+    if (customerId) {
+        antsomiWebinbox.setAttribute('lookupId', customerId);
+    } else {
+        console.error('Customer ID (_cdp_cusid) not found in cookies. Antsomi Webinbox will not function.');
+    }
+</script>
+
 </head>
 
 <body>
@@ -211,44 +250,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
 
-<!-- Load Antsomi Webinbox Library -->
-<script src="https://st-platform.ants.tech/js/libs/app-inbox/app-inbox.min.js?v=1"></script>
-
-<!-- Antsomi Webinbox Component -->
-<antsomi-webinbox 
-    portalid="561236459" 
-    destinationid="8281353" 
-    lookupType="customer" 
-    lookupId="" 
-    selector="body">
-</antsomi-webinbox>
-
-<script>
-    // Function to get the value of a specific cookie
-    function getCookieValue(cookieName) {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.startsWith(cookieName + '=')) {
-                return cookie.substring(cookieName.length + 1);
-            }
-        }
-        return null;
-    }
-
-    // Get customer ID (_cdp_cusid) from cookies
-    const customerId = getCookieValue('_cdp_cusid');
-
-    // Select the Antsomi Webinbox component
-    const antsomiWebinbox = document.querySelector('antsomi-webinbox');
-
-    // Update lookupId if customerId exists
-    if (customerId) {
-        antsomiWebinbox.setAttribute('lookupId', customerId);
-    } else {
-        console.error('Customer ID (_cdp_cusid) not found in cookies. Antsomi Webinbox will not function.');
-    }
-</script>
   
 </body>
 
