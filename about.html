@@ -32,15 +32,8 @@
 </head>
 
 <body>
-	<!-- Antsomi Webinbox Component -->
-<antsomi-webinbox 
-    portalid="561236459" 
-    destinationid="8281353" 
-    lookupType="customer" 
-    lookupId="" 
-    selector="body">
-</antsomi-webinbox>
-	
+
+<antsomi-webinbox portalId="561236459" destinationId="8281353" selector="body" lookupId="" lookupType="customer" />	
  <script type="text/javascript">
     // Function to get cookie value by name
     function getCookieValue(cookieName) {
@@ -63,6 +56,10 @@
       const antsomiWebinbox = document.querySelector('antsomi-webinbox');     
 	    
     antsomiWebinbox.setAttribute('lookupId', localStorage.getItem('_cdp_cusid'));
+	     
+      
+    
+  </script>
 	 
   <div class="hero_area">
     <!-- header section strats -->
