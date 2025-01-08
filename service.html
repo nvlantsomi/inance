@@ -25,7 +25,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-
+<script src="https://st-platform.ants.tech/js/libs/app-inbox/app-inbox.min.js?v=1"></script>
 </head>
 
 <body>
@@ -225,7 +225,25 @@
     </div>
   </section>
 
+<antsomi-webinbox portalId="561236459" destinationId="35342869" selector="body" lookupId="" lookupType="visitor" />
 
+<script type="text/javascript">
+// Function to get cookie value by name
+    function getCookieValue(cookieName) {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith(cookieName + '=')) {
+          return cookie.substring(cookieName.length + 1);
+        }
+      }
+      return null;
+    }
+		    
+ // Replace the lookupId attribute in the antsomi-webinbox component
+ const antsomiWebinbox = document.querySelector('antsomi-webinbox');         
+ antsomiWebinbox.setAttribute('lookupId', localStorage.getItem('_asm_uid'));
+</script>
 
   <!-- end info_section -->
 
