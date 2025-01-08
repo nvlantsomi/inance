@@ -32,34 +32,6 @@
 </head>
 
 <body>
-
-<antsomi-webinbox portalId="561236459" destinationId="8281353" selector="body" lookupId="" lookupType="customer" />	
- <script type="text/javascript">
-    // Function to get cookie value by name
-    function getCookieValue(cookieName) {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.startsWith(cookieName + '=')) {
-          return cookie.substring(cookieName.length + 1);
-        }
-      }
-      return null;
-    }
-	
-   
-      // Get the visitorId from the '_asm_uid' cookie
-      const visitorId = getCookieValue('_asm_uid');
-	//const customerId = localStorage.getItem('_cdp_cusid');	    
-
-      // Replace the lookupId attribute in the antsomi-webinbox component
-      const antsomiWebinbox = document.querySelector('antsomi-webinbox');     
-	    
-    antsomiWebinbox.setAttribute('lookupId', localStorage.getItem('_cdp_cusid'));
-	     
-      
-    
-  </script>
 	 
   <div class="hero_area">
     <!-- header section strats -->
@@ -119,7 +91,33 @@
   </div>
 
   <!-- about section -->
+<antsomi-webinbox portalId="561236459" destinationId="8281353" selector="body" lookupId="" lookupType="customer" />
+ <script type="text/javascript">
+    // Function to get cookie value by name
+    function getCookieValue(cookieName) {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith(cookieName + '=')) {
+          return cookie.substring(cookieName.length + 1);
+        }
+      }
+      return null;
+    }
+	
+   
+      // Get the visitorId from the '_asm_uid' cookie
+      const visitorId = getCookieValue('_asm_uid');
+	//const customerId = localStorage.getItem('_cdp_cusid');	    
 
+      // Replace the lookupId attribute in the antsomi-webinbox component
+      const antsomiWebinbox = document.querySelector('antsomi-webinbox');     
+	    
+    antsomiWebinbox.setAttribute('lookupId', localStorage.getItem('_cdp_cusid'));
+	     
+        
+  </script>
+	
   <section class="about_section layout_padding">
     <div class="container">
       <div class="row">
