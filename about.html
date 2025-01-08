@@ -192,8 +192,9 @@
   </section>
 
 <antsomi-webinbox portalId="561236459" destinationId="8281353" selector="body" lookupId="" lookupType="customer" />
- <script type="text/javascript">
-    // Function to get cookie value by name
+
+<script type="text/javascript">
+// Function to get cookie value by name
     function getCookieValue(cookieName) {
       const cookies = document.cookie.split(';');
       for (let i = 0; i < cookies.length; i++) {
@@ -204,19 +205,11 @@
       }
       return null;
     }
-	
-   
-      // Get the visitorId from the '_asm_uid' cookie
-      const visitorId = getCookieValue('_asm_uid');
-	//const customerId = localStorage.getItem('_cdp_cusid');	    
-
-      // Replace the lookupId attribute in the antsomi-webinbox component
-      const antsomiWebinbox = document.querySelector('antsomi-webinbox');     
-	    
-    antsomiWebinbox.setAttribute('lookupId', localStorage.getItem('_cdp_cusid'));
-	     
-        
-  </script>
+		    
+ // Replace the lookupId attribute in the antsomi-webinbox component
+ const antsomiWebinbox = document.querySelector('antsomi-webinbox');         
+ antsomiWebinbox.setAttribute('lookupId', localStorage.getItem('_cdp_cusid'));
+</script>
 
   <!-- end info_section -->
 
